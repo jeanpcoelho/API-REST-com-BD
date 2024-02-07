@@ -1,4 +1,4 @@
-package com.web.apirest;
+package com.APIrestBD.consulta;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
