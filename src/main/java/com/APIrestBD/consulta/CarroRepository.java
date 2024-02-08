@@ -1,7 +1,7 @@
 package com.APIrestBD.consulta;
 
-import ;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface  {
+public interface CarroRepository extends JpaRepository<Carro, Long> {
 
 }
