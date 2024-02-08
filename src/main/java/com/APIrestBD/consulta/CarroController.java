@@ -22,9 +22,8 @@ public class CarroController {
     @Autowired
     private CarroRepository carroRepository;
 
-    @SuppressWarnings("null")
     @PostMapping
-    @ResponseStatus(code = HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)
     public Carro cadastrar(@RequestBody Carro carro) {
         return carroRepository.save(carro);
     }
@@ -34,36 +33,30 @@ public class CarroController {
         return carroRepository.findAll();
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/{id}")
-    public Carro buscarPorId(@PathVariable Long id) {
-        var carroOptional = carroRepository.findById(id);
-        if (carroOptional.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
-        return carroOptional.get();
+    public ResponseEntity<Carro> buscarPorId(@PathVariable Long id) {
+        return carroRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    @SuppressWarnings("null")
     @DeleteMapping("/{id}")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void excluirPorId(@PathVariable Long id) {
-        var carroOptional = carroRepository.findById(id);
-        if (carroOptional.isEmpty()) {
+        if (carroRepository.existsById(id)) {
+            carroRepository.deleteById(id);
+        } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        carroRepository.delete(carroOptional.get());
     }
 
-    @SuppressWarnings("null")
     @PutMapping("/{id}")
-    public Carro atualizarPorId(@PathVariable Long id, @RequestBody Carro carro) {
-        var carroOptional = carroRepository.findById(id);
-        if (carroOptional.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
-        carro.setId(id);
-        return carroRepository.save(carro);
+    public ResponseEntity<Carro> atualizarPorId(@PathVariable Long id, @RequestBody Carro carro) {
+        return carroRepository.findById(id)
+                .map(existingCarro -> {
+                    carro.setId(id);
+                    return ResponseEntity.ok(carroRepository.save(carro));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
-
 }
