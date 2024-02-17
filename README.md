@@ -4,7 +4,8 @@
 
 JEAN PEREIRA COELHO
 
-Projeto em construçao 
+
+Projeto incompleto ainda em construçao 
 
 
 - Descrição e Objetivo do projeto
@@ -45,6 +46,11 @@ Railway (DBaaS)
 
 
 - Créditos - Fontes de referência utilizadas
+
+
+Tomaz Martins: https://github.com/Tomaz5556/TrabalhoFinalWEBi
+
+Madson Silva: https://github.com/Maddytec/bora_praticar_spring_boot_jpa_h2_rest
 
 
 - Licença do projeto
