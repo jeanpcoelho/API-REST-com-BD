@@ -48,7 +48,7 @@ Railway (DBaaS)
 - Créditos - Fontes de referência utilizadas
 
 
-Tomaz Martins: https://github.com/Tomaz5556/TrabalhoFinalWEBi
+Tomaz Martins: https://github.com/Tomaz5556
 
 Madson Silva: https://github.com/Maddytec/bora_praticar_spring_boot_jpa_h2_rest
 
