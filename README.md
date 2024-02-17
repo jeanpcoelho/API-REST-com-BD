@@ -5,7 +5,7 @@
 JEAN PEREIRA COELHO
 
 
-Projeto incompleto ainda em construçao 
+Projeto incompleto, ainda em construçao 
 
 
 - Descrição e Objetivo do projeto
